@@ -17,7 +17,12 @@ namespace Logging_and_ILogger
         {
             app.Run(async (context) =>
             {
-                logger.LogInformation("Processing request {0}", context.Request.Path);
+                logger.LogCritical("LogCritical {0}", context.Request.Path);
+                logger.LogDebug("LogDebug {0}", context.Request.Path);
+                logger.LogError("LogError {0}", context.Request.Path);
+                logger.LogInformation("LogInformation {0}", context.Request.Path);
+                logger.LogWarning("LogWarning {0}", context.Request.Path);
+
                 await context.Response.WriteAsync("Hello World!");
             });
         }
